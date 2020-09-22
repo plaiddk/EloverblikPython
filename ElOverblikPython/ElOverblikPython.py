@@ -15,9 +15,9 @@ class BearerAuth(requests.auth.AuthBase):
 token = requests.get('https://api.eloverblik.dk/CustomerApi/api/Token', auth=BearerAuth('insert token from eloverblik.dk'))
 
 #Dump result to json
-jtopy =  json.dumps(token.json())
-dict_json = json.loads(jtopy)
-tokenacces =dict_json["result"]
+tokendump =  json.dumps(token.json())
+jsonstring = json.loads(tokendump)
+tokenacces =jsonstring["result"]
 
 #Get Meter data
 body = '{"meteringPoints": {"meteringPoint": ["INSERT meteringpoint"] }}'
@@ -25,7 +25,7 @@ meterdata = requests.post('https://api.eloverblik.dk/CustomerApi/api/MeterData/G
 print(meterdata.status_code)   
 
 #Dump meterdata to json
-jmeter=  json.dumps(meterdata.json())         
+meterdump=  json.dumps(meterdata.json())         
 
 #Change directory to write json
 os.getcwd()
@@ -33,4 +33,4 @@ os.chdir(r"D:\\testdata\\")
 
 #Write json to file
 newfile = open("meterdata.json","w")
-newfile.write(jmeter)
+newfile.write(meterdump)
