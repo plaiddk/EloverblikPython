@@ -10,13 +10,13 @@ class BearerAuth(requests.auth.AuthBase):
         return r
 
 
-token = requests.get('https://api.eloverblik.dk/CustomerApi/api/Token', auth=BearerAuth('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlblR5cGUiOiJDdXN0b21lckFQSV9SZWZyZXNoIiwidG9rZW5pZCI6IjQ3NDIzNWJkLWZkMjYtNDYwNi1iNTFjLTc4MDU4YjNkNjE4OCIsImp0aSI6IjQ3NDIzNWJkLWZkMjYtNDYwNi1iNTFjLTc4MDU4YjNkNjE4OCIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL25hbWVpZGVudGlmaWVyIjoiUElEOjkyMDgtMjAwMi0yLTY1MTU5Mzg3NjUyOCIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL2dpdmVubmFtZSI6IlRob21hcyBSeXR0ZXIgSmVuc2VuIiwibG9naW5UeXBlIjoiS2V5Q2FyZCIsInBpZCI6IjkyMDgtMjAwMi0yLTY1MTU5Mzg3NjUyOCIsInR5cCI6IlBPQ0VTIiwiZXhwIjoxNjMxMTExMTc0LCJpc3MiOiJFbmVyZ2luZXQiLCJ0b2tlbk5hbWUiOiJ0aG9tYXMiLCJhdWQiOiJFbmVyZ2luZXQifQ.WMWuFoHRvXrAhmOJfNVmpNHTrmNbtRXxbvgS_B3grNA'))
+token = requests.get('https://api.eloverblik.dk/CustomerApi/api/Token', auth=BearerAuth('insert token from eloverblik.dk'))
 
 jtopy =  json.dumps(token.json())
 dict_json = json.loads(jtopy)
 
 tokenacces =dict_json["result"]
-body = '{"meteringPoints": {"meteringPoint": ["571313115400203473"] }}'
+body = '{"meteringPoints": {"meteringPoint": ["INSERT meteringpoint"] }}'
 headers = {'Content-type': 'application/json'}
 
 headers={'Content-type':'application/json', 'Accept':'application/json'}
