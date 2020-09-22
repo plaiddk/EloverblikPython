@@ -17,9 +17,7 @@ dict_json = json.loads(jtopy)
 
 tokenacces =dict_json["result"]
 body = '{"meteringPoints": {"meteringPoint": ["INSERT meteringpoint"] }}'
-headers = {'Content-type': 'application/json'}
 
-headers={'Content-type':'application/json', 'Accept':'application/json'}
 meterdata = requests.post('https://api.eloverblik.dk/CustomerApi/api/MeterData/GetTimeSeries/2020-01-01/2020-02-01/Hour', auth=BearerAuth(tokenacces),data=body.encode('utf8'),headers = {'Content-type': 'application/json'})
 
 jmeter=  json.dumps(meterdata.json())         
